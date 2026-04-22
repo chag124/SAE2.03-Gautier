@@ -1,0 +1,10 @@
+.movie-card {
+  background-color: blue;
+  border-radius: 10px;
+
+  .movie-card_images {}
+
+  .movie-card_content {}
+
+  .movie-card_title {}
+}

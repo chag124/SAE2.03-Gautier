@@ -15,6 +15,7 @@
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
       import { Movie } from "./component/Movie/script.js";
+      import { DataMovie } from "./data/dataMovie.js";
 
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -27,8 +28,13 @@
         );
       };
 
-      C.start = function () {
+      C.start = async function () {
         V.renderNavBar("C.handlerAbout()");
+        const fakeData = [
+        { titre: "Le Bon, la Brute et le Truand", affiche: "bon_brute_truand.jpg" },
+        { titre: "Inception", affiche: "inception.jpg" }
+    ];
+        V.renderMovie(data);
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -44,6 +50,11 @@
       V.renderNavBar = function (hAbout) {
         let header = document.querySelector("#header");
         header.innerHTML = NavBar.format(hAbout);
+      };
+
+      V.renderMovies = function (movies) {
+        let content = document.querySelector("#content");
+        content.innerHTML = Movie.format(movies);
       };
 
       C.start(); // Démarre l'application

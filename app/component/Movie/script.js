@@ -6,7 +6,7 @@ let Movie = {};
 Movie.format = function (movie) {
   let html = template;
   html = html.replace("{{name}}", movie.name);
-  html = html.replace("{{affiche}}", movie.affiche);
+  html = html.replace("{{image}}", movie.image);
   return html;
 };
 

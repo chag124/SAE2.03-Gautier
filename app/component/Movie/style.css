@@ -1,10 +1,23 @@
 .movie-card {
   background-color: blue;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 
-  .movie-card_images {}
+  .movie-card_images {
+    object-fit: cover;
+    width: 100%;
+  }
 
-  .movie-card_content {}
+  .movie-card_content {
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .movie-card_title {}
+  .movie-card_title {
+    color: purple;
+    text-align: center;
+  }
 }

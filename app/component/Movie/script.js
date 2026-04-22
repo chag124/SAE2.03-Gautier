@@ -3,9 +3,10 @@ let template = await templateFile.text();
 
 let Movie = {};
 
-Movie.format = function (hAbout, hHome) {
+Movie.format = function (movie) {
   let html = template;
-  html = html.replace("{{hAbout}}", hAbout);
+  html = html.replace("{{titre}}", movie.titre);
+  html = html.replace("{{affiche}}", movie.affiche);
   return html;
 };
 

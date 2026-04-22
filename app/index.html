@@ -31,7 +31,7 @@
       C.start = async function () {
         V.renderNavBar("C.handlerAbout()");
         const data = await DataMovie.requestMovies();
-        V.renderMovie(data);
+        V.renderMovies(data);
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)

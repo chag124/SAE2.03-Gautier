@@ -51,7 +51,7 @@
 
       V.renderMovies = function (movies) {
         let content = document.querySelector("#content");
-        content.innerHTML = movies.map(m => Movie.format(m)).join("");
+        content.innerHTML = Movie.format(movies);
       };
 
       C.start(); // Démarre l'application

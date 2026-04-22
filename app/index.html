@@ -30,10 +30,7 @@
 
       C.start = async function () {
         V.renderNavBar("C.handlerAbout()");
-        const fakeData = [
-        { titre: "Le Bon, la Brute et le Truand", affiche: "bon_brute_truand.jpg" },
-        { titre: "Inception", affiche: "inception.jpg" }
-    ];
+        const data = await DataMovie.requestMovies();
         V.renderMovie(data);
       };
 

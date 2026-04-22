@@ -14,6 +14,7 @@
 
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
+      import { Movie } from "./component/Movie/script.js";
 
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -28,6 +29,21 @@
 
       C.start = function () {
         V.renderNavBar("C.handlerAbout()");
+
+        // On crée un tableau de test manuellement
+    const fakeMovies = [
+        { 
+            titre: "Le Bon, la Brute et le Truand", 
+            affiche: "bon_brute_truand.jpg" 
+        },
+        { 
+            titre: "Avatar", 
+            affiche: "avatar.jpg" 
+        }
+    ];
+    
+    // On l'affiche direct
+    V.renderMovies(fakeMovies);
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -47,7 +63,6 @@
 
       C.start(); // Démarre l'application
 
-      import { Movie } from "./component/Movie/script.js";
     </script>
   </body>
 </html>

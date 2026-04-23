@@ -57,6 +57,6 @@ function insertMovie($name, $director, $year, $time, $description, $category, $i
         ]);
         return true;
     } catch (PDOException $e){
-        die(json_encode($e->getMessage()));
+        return false;
     }
 }

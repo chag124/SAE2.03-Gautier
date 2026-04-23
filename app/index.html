@@ -30,7 +30,7 @@
 
       C.start = async function () {
         V.renderNavBar("C.handlerAbout()");
-        
+
         const data = await DataMovie.requestMovies();
         V.renderMovies(data);
       };
@@ -52,7 +52,7 @@
 
       V.renderMovies = function (movies) {
         let content = document.querySelector("#content");
-        content.innerHTML = Movie.format(movies);
+        content.innerHTML = Movie.format(data);
       };
 
       C.start(); // Démarre l'application

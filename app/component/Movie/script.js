@@ -3,7 +3,7 @@ let template = await templateFile.text();
 
 
 let MessagetemplateFile = await fetch("./component/Movie/message.html");
-let Messagetemplate = await templateFile.text();
+let Messagetemplate = await MessagetemplateFile.text();
 
 let Movie = {};
 

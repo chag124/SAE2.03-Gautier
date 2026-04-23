@@ -37,6 +37,7 @@
 /*message*/
 
 .movie-message {
+  grid-column: 1/-1;
   text-align: center;
   padding: 100px 20px;
 }

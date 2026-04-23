@@ -1,29 +1,24 @@
-let templateFile = await fetch("./component/Movie/template.html");
+let templateFile = await fetch("./component/MovieDetail/template.html");
 let template = await templateFile.text();
 
 
-let MessagetemplateFile = await fetch("./component/Movie/message.html");
-let Messagetemplate = await MessagetemplateFile.text();
+let MovieDetail = {};
 
-let Movie = {};
+MovieDetail.format = function (movie) {
+  let html = template;
 
-Movie.format = function (data) {
-  //data = [];
+  html = html.replace("{{name}}", movie.name);
+  html = html.replace("{{image}}", movie.image);
+  html = html.replace("{{description}}", movie.description);
+  html = html.replace("{{id_category}}", movie.id_category);
+  html = html.replace("{{length}}", movie.length);
+  htmlfinal += html;
+  html = html.replace("{{director}}", movie.director);
+  html = html.replace("{{year}}", movie.year);
+  html = html.replace("{{min_age}}", movie.min_age);
+  html = html.replace("{{trailer}}", movie.trailer);
 
-  if (!data || data.length == 0) {
-    return Messagetemplate;
-  }
-
-  let htmlfinal = "";
-
-  for (let movie of data) {
-    let html = template;
-
-    html = html.replace("{{name}}", movie.name);
-    html = html.replace("{{image}}", movie.image);
-    htmlfinal += html;
-  }
   return htmlfinal;
-};
+}
 
-export { Movie };
+export { MovieDetail };

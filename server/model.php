@@ -48,12 +48,12 @@ function insertMovie($name, $director, $year, $time, $description, $category, $i
             ':name' => $name,
             ':director' => $director,
             ':year' => $year,
-            ':length' => $time,
+            ':length' => $length,
             ':description' => $description,
-            ':id_category' => $category,
+            ':id_category' => $id_category,
             ':image' => $image,
             ':trailer' => $trailer,
-            ':min_age' => $age,
+            ':min_age' => $min_age,
         ]);
         return true;
     } catch (PDOException $e){

@@ -54,7 +54,6 @@ label {
 .movie-form_button:hover {
   background-color: var(--color-white);
   color: var(--color-blue-dark);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .movie-form_button:active {

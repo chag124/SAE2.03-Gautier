@@ -4,6 +4,7 @@ let template = await templateFile.text();
 let MovieForm = {};
 
 MovieForm.format = function () {
+    let html = template.replace("{{handler}}", handler);
     return template;
 }
 

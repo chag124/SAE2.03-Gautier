@@ -8,16 +8,17 @@
   </head>
   <body>
     <section id="log"></section>
+    <section id="add-movie"></section>
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
       import { MovieForm } from "./component/MovieForm/script.js";
-      import { DataMovie } from "./component/DataMovie.js";
+      import { DataMovie } from "./data/DataMovie.js";
 
       window.C = {};
 
       C.handlerAddMovie = async function(){
-        let form = document.querySelector('.movie__form');
+        let form = document.querySelector('.movie-form');
         let fd = new FormData(form);
         let res = await DataMovie.add(fd);
         V.renderLog(res);

@@ -8,22 +8,22 @@ let Messagetemplate = await MessagetemplateFile.text();
 let Movie = {};
 
 Movie.format = function (data) {
-  data = [];
+  //data = [];
 
   if (!data || data.length == 0) {
     return Messagetemplate;
   }
 
-  //let htmlfinal = "";
+  let htmlfinal = "";
 
-  //for (let movie of data) {
-  //let html = template;
+  for (let movie of data) {
+    let html = template;
 
-  //html = html.replace("{{name}}", movie.name);
-  //html = html.replace("{{image}}", movie.image);
-  //htmlfinal += html;
-  //}
-  //return htmlfinal;
+    html = html.replace("{{name}}", movie.name);
+    html = html.replace("{{image}}", movie.image);
+    htmlfinal += html;
+  }
+  return htmlfinal;
 };
 
 export { Movie };

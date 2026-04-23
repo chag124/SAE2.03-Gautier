@@ -1,7 +1,6 @@
 .movie-form {
   padding: 2rem;
-  background-color: var(--color-blue-dark);
-  border-radius: 5%;
+  background-color: red;
   color: var(--color-white);
 }
 

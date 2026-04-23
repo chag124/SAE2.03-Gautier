@@ -35,8 +35,10 @@ label {
   color: var(--color-blue-dark);
   border: 2px solid var(--color-white);
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .movie-form input,

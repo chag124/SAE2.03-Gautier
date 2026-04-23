@@ -30,8 +30,9 @@ label {
 .movie-form_button {
   margin-top: 1rem;
   padding: 1.2rem;
-  background-color: var(--color-blue-light);
-  color: black;
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
   border-radius: 6px;
   font-size: 1.1rem;
   text-transform: uppercase;

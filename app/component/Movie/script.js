@@ -3,11 +3,17 @@ let template = await templateFile.text();
 
 let Movie = {};
 
-Movie.format = function (movie) {
-  let html = template;
-  html = html.replace("{{name}}", movie.name);
-  html = html.replace("{{image}}", movie.image);
-  return html;
+Movie.format = function (data) {
+  let htmlfinal = "";
+
+  for (let movie of data) {
+    let html = template;
+
+    html = html.replace("{{name}}", movie.name);
+    html = html.replace("{{image}}", movie.image);
+    htmlfinal += html;
+  }
+  return htmlfinal;
 };
 
 export { Movie };

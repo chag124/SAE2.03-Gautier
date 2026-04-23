@@ -33,3 +33,15 @@
     font-family: var(--ff-sans);
   }
 }
+
+/*message*/
+
+.movie-message {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.movie-message_text {
+  color: var(--color-blue-light);
+  font-size: 1.5rem;
+}

@@ -32,3 +32,31 @@ function getAllMovies(){
     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne les résultats
 }
+
+function insertMovie($name, $director, $year, $time, $description, $category, $image, $trailer, $age){
+    try {
+        // Connexion à la base de données
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+
+        $sql = "INSERT INTO SAE203_Movie (name, director, year, time, description, category, image, trailer, age) VALUES (:name, :director, :year, :time, :description, :category, :image, :trailer, :age)";
+
+        // Prépare la requête SQL
+        $stmt = $cnx->prepare($sql);
+
+        // Exécute la requête SQL
+        $stmt->execute([
+            ':name' => $name,
+            ':director' => $director,
+            ':year' => $year,
+            ':time' => $time,
+            ':description' => $description,
+            ':category' => $category,
+            ':image' => $image,
+            ':trailer' => $trailer,
+            ':age' => $age,
+        ]);
+        return true;
+    } catch (PDOException $e){
+        return false;
+    }
+}

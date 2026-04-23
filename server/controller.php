@@ -25,3 +25,28 @@ function readMoviesController(){
     $movies = getAllMovies();
     return $movies;
 }
+
+function addMovieController(){
+    $name = $_POST['name'] ?? "";
+    $director = $_POST['director'] ?? "";
+    $year = $_POST['year'] ?? "";
+    $time = $_POST['time'] ?? "";
+    $description = $_POST['description'] ?? "";
+    $category = $_POST['category'] ?? "";
+    $image = $_POST['image'] ?? "";
+    $trailer = $_POST['trailer'] ?? "";
+    $age = $_POST['age'] ?? "";
+
+    if (empty($name) || empty($director)){
+        return "Erreur : Le titre et le rélisateur sont obligtoires";
+    }
+
+    $res = insertMovie($name, $director, $year, $time, $description, $category, $image, $trailer, $age);
+
+    if ($res){
+        return "Le film a bien été enregistré";
+    }
+    else {
+        return false;
+    }
+}

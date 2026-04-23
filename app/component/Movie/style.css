@@ -3,11 +3,10 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
   padding: 40px;
-  background-color: var(--color-gray-light);
+  background-color: var(--color-blue-dark);
 }
 
 .movie-card {
-  background-color: var(--color-blue-dark);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -24,7 +23,7 @@
   }
 
   .movie-card_title {
-    color: var(--white);
+    color: var(--color-white);
     font-size: 1.4rem;
     font-weight: 600;
     font-family: var(--ff-sans);

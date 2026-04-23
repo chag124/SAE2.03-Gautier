@@ -1,7 +1,9 @@
 .movie-form {
+  margin: 2rem auto;
   padding: 2rem;
   background-color: var(--color-blue-dark);
   color: var(--color-white);
+  border-radius: 12px;
 }
 
 .movie-form_title {

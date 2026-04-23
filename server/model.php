@@ -65,13 +65,11 @@ function getMovieById($id) {
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     
-    // Requête SQL pour récupérer TOUTES les colonnes du film correspondant à l'ID
     $sql = "SELECT * FROM SAE203_Movie WHERE id = :id";
     
     $stmt = $cnx->prepare($sql);
     $stmt->execute([':id' => $id]);
-    
-    // fetch() car on ne récupère qu'une seule ligne (un seul objet)
+
     $res = $stmt->fetch(PDO::FETCH_OBJ);
     return $res; 
 }

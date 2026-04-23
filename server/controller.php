@@ -52,14 +52,11 @@ function addMovieController(){
 }
 
 function readMovieDetailController() {
-    // On récupère l'ID depuis la requête (GET ou POST)
     $id = $_REQUEST['id'] ?? null;
 
     if ($id === null) {
-        return false; // Si pas d'ID, le contrôleur échoue
+        return false; 
     }
-
-    // On appelle la fonction du modèle
     $movie = getMovieById($id);
     
     return $movie;

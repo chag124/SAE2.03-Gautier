@@ -19,6 +19,8 @@ Movie.format = function (data) {
   for (let movie of data) {
     let html = template;
 
+    html = html.replace("{{id}}", movie.id);
+
     html = html.replace("{{name}}", movie.name);
     html = html.replace("{{image}}", movie.image);
     htmlfinal += html;

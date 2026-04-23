@@ -21,6 +21,10 @@
     border-radius: 5%;
   }
 
+  .movie-card_imges:hover {
+    opacity: 0.6;
+  }
+
   .movie-card_content {
     padding: 20px;
     text-align: center;

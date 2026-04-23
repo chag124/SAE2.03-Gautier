@@ -42,8 +42,8 @@ label {
 .movie-form input,
 .movie-form select,
 .movie-form textarea {
-  background: rgba(0, 0, 0, 0.2);
+  background: transparent;
   border-radius: 8px;
   padding: 0.8rem;
-  color: red;
+  color: var(--color-white);
 }

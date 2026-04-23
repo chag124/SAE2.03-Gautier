@@ -1,0 +1,32 @@
+.movie-form {
+  padding: 2rem;
+  background-color: var(--color-blue-dark);
+  border-radius: 5%;
+  color: var(--color-white);
+}
+
+.movie-form_title {
+  text-align: center;
+  color: var(--color-blue-light);
+  font-size: 1.8rem;
+}
+
+.movie-form_groupe {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: var(--color-blue-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.movie-form_button {
+  padding: 1rem;
+  background-color: var(--color-blue-light);
+  color: black;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}

@@ -15,7 +15,7 @@
   .movie-card_images {
     object-fit: cover;
     width: 100%;
-    border-bottom: var(--color-blue-light);
+    border-bottom: 2px solid var(--color-blue-light);
   }
 
   .movie-card_content {

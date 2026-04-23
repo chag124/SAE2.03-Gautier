@@ -33,7 +33,7 @@ label {
 .movie-form textarea {
   background: var(--color-blue-light);
   border-radius: 8px;
-  padding: 0.8rem;
+  padding: 1rem;
   color: var(--color-gray-dark);
 }
 

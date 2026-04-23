@@ -21,7 +21,6 @@ Movie.format = function (data) {
 
     html = html.replace("{{name}}", movie.name);
     html = html.replace("{{image}}", movie.image);
-    html = html.replace("{{id}}", movie.id);
     htmlfinal += html;
   }
   return htmlfinal;

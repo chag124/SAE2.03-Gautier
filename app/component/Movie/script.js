@@ -10,7 +10,7 @@ let Movie = {};
 Movie.format = function (data) {
   data = [];
 
-  if (!data || data.lenght == 0) {
+  if (!data || data.length == 0) {
     return Messagetemplate;
   }
 

@@ -28,6 +28,15 @@ label {
   margin-bottom: 0.6rem;
 }
 
+.movie-form input,
+.movie-form select,
+.movie-form textarea {
+  background: var(--color-blue-light);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: var(--color-gray-dark);
+}
+
 .movie-form_button {
   margin-top: 1rem;
   padding: 1.2rem;
@@ -39,13 +48,4 @@ label {
   font-weight: 700;
   text-transform: uppercase;
   width: 100%;
-}
-
-.movie-form input,
-.movie-form select,
-.movie-form textarea {
-  background: var(--color-blue-light);
-  border-radius: 8px;
-  padding: 0.8rem;
-  color: var(--color-gray-dark);
 }

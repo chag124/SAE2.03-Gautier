@@ -32,7 +32,7 @@ label {
   margin-top: 1rem;
   padding: 1.2rem;
   background-color: transparent;
-  color: var(--color-white);
+  color: var(--color-blue-dark);
   border: 2px solid var(--color-white);
   border-radius: 6px;
   font-size: 1.1rem;
@@ -45,5 +45,5 @@ label {
   background: var(--color-blue-light);
   border-radius: 8px;
   padding: 0.8rem;
-  color: var(--color-white);
+  color: var(--color-gray-dark);
 }

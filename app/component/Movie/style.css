@@ -22,7 +22,7 @@
   }
 
   .movie-card_images:hover {
-    opacity: 0.9;
+    opacity: 0.5;
   }
 
   .movie-card_content {

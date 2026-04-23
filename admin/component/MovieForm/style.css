@@ -4,12 +4,13 @@
   background-color: var(--color-blue-dark);
   color: var(--color-white);
   border-radius: 12px;
+  font-family: var(--ff-sans);
 }
 
 .movie-form_title {
   text-align: center;
   color: var(--color-blue-light);
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .movie-form_groupe {

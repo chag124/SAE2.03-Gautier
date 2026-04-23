@@ -42,7 +42,7 @@ label {
 .movie-form input,
 .movie-form select,
 .movie-form textarea {
-  background: red;
+  background: var(--color-blue-light);
   border-radius: 8px;
   padding: 0.8rem;
   color: var(--color-white);

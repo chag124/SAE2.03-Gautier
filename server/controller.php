@@ -37,8 +37,8 @@ function addMovieController(){
     $trailer = $_POST['trailer'] ?? "";
     $age = $_POST['age'] ?? "";
 
-    if (empty($name) || empty($director)){
-        return "Erreur : Le titre et le rélisateur sont obligtoires";
+    if (empty($name) || empty($director) || empty($category)){
+        return "Erreur : Tous les champs sont obligatoires";
     }
 
     $res = insertMovie($name, $director, $year, $time, $description, $category, $image, $trailer, $age);

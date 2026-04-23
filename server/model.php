@@ -38,7 +38,7 @@ function insertMovie($name, $director, $year, $time, $description, $category, $i
         // Connexion à la base de données
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
 
-        $sql = "INSERT INTO SAE203_Movie (name, director, year, time, description, category, image, trailer, age) VALUES (:name, :director, :year, :time, :description, :category, :image, :trailer, :age)";
+        $sql = "INSERT INTO SAE203_Movie (name, director, year, length, description, id_category, image, trailer, age) VALUES (:name, :director, :year, :length, :description, :id_category, :image, :trailer, :age)";
 
         // Prépare la requête SQL
         $stmt = $cnx->prepare($sql);
@@ -48,9 +48,9 @@ function insertMovie($name, $director, $year, $time, $description, $category, $i
             ':name' => $name,
             ':director' => $director,
             ':year' => $year,
-            ':time' => $time,
+            ':length' => $time,
             ':description' => $description,
-            ':category' => $category,
+            ':id_category' => $category,
             ':image' => $image,
             ':trailer' => $trailer,
             ':age' => $age,

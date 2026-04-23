@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   justify-content: center;
+  justify-items: center;
   gap: 30px;
   padding: 40px;
   background-color: var(--color-blue-dark);

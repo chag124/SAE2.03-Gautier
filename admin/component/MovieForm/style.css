@@ -1,6 +1,6 @@
 .movie-form {
   padding: 2rem;
-  background-color: red;
+  background-color: var(--color-blue-dark);
   color: var(--color-white);
 }
 

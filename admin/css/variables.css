@@ -11,6 +11,10 @@
 
   --ff-sans: "DM sans", sans-serif;
 
+  --color-blue-dark: #384454;
+  --color-blue-light: #d4d3dc;
+  --color-white: white;
+
   /* Sementic Tokens */
   --color-fg: var(--color-white);
   --color-bg: var(--color-gray-dark);

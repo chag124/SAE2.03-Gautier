@@ -48,7 +48,7 @@
 }
 
 .movie-detail_image {
-  width: 60%;
+  width: 100%;
   border-radius: 15px;
   border: 2px solid white;
 }

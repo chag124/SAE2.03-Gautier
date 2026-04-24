@@ -50,6 +50,11 @@ function addMovieController(){
         return "Erreur : Tous les champs sont obligatoires";
     }
 
+    /*valider l'âge*/
+    if ($age == null || $age <0 || $age > 18){
+        return "Erreur; L'âge doit être un chiffre compris entre 0 et 18";
+    }
+
     $res = insertMovie($name, $director, $year, $time, $description, $category, $image, $trailer, $age);
 
     if ($res){

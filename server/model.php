@@ -33,7 +33,7 @@ function getAllMovies(){
     return $res; // Retourne les résultats
 }
 
-function insertMovie($name, $director, $year, $time, $description, $category, $image, $trailer, $age){
+function insertMovie($name, $director, $year, $length, $description, $category, $image, $trailer, $age){
     try {
         // Connexion à la base de données
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);

@@ -23,6 +23,7 @@
 .movie-detail_button:hover {
   background-color: var(--blue-light);
   color: var(--color-blue-dark);
+  border: 1px solid var(--color-blue);
 }
 
 .movie-detail_trailer {

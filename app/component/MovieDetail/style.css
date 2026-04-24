@@ -1,7 +1,30 @@
 .movie-detail {
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 2rem;
   background-color: var(--color-blue-dark);
   color: var(--color-white);
   font-family: var(--ff-sans);
 }
+
+.movie-detail_button {}
+
+.movie-detail_trailer {
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.movie-detail_container {}
+
+.movie-detail_image {}
+
+.movie-detail_info {}
+
+.movie-detail_title {}
+
+.movie-detail_category {}
+
+.movie-detail_description {}
+
+.movie-detail_donnee {}

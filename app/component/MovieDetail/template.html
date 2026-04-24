@@ -1,9 +1,13 @@
 <div class="movie-detail">
   <button class="movie-detail_button" onclick="C.handlerHome()">Retour à la liste</button>
 
-  <div class="movie-detail_wrap">
+  <div class="movie-detail_trailer">
+    <iframe src="{{trailer}}"frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="movie-detail_container">
     <div class="movie-detail_image">
-        <img src="../server/images/{{image}}" alt="affiche film" class="movie-card_images">
+        <img src="../server/images/{{image}}" alt="affiche film">
     </div>
 
     <div class="movie-detail_info">
@@ -18,10 +22,6 @@
         <p class="movie-detail_badge">Age: {{min_age}}</p>
       </div>
     </div>
-  </div>
-
-  <div>
-    <iframe src="{{trailer}}"frameborder="0" allowfullscreen></iframe>
   </div>
 
 </div>

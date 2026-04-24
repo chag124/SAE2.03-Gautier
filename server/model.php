@@ -65,7 +65,10 @@ function getMovieById($id) {
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     
-    $sql = "SELECT * FROM SAE203_Movie WHERE id = :id";
+    $sql = "SELECT SAE203_Movie.*, SAE203_Category.name AS category_text 
+            FROM SAE203_Movie 
+            LEFT JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id 
+            WHERE SAE203_Movie.id = :id";
     
     $stmt = $cnx->prepare($sql);
     $stmt->execute([':id' => $id]);

@@ -8,6 +8,7 @@
 
   .navbar__item {
     --_offset: 0.2rem;
+    position: relative;
     padding: 0.5rem 1rem;
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
@@ -17,7 +18,25 @@
 
     &:hover {
       --_offset: 0.5rem;
+
+      .navbar__menu {
+        display: flex;
+      }
     }
+  }
+
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    top: 100%;
+    background-color: var(--color-blue-dark);
+  }
+
+  .navbar__menu-item {
+    text-decoration: none;
+    font-size: 1rem;
   }
 
   .navbar__list {

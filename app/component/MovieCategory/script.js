@@ -12,10 +12,7 @@ MovieCategory.format = function (categoryName, movies) {
 
   html = html.replace("{{categoryName}}", categoryName);
 
-  let moviesHtml = "";
-  movies.forEach((movie) => {
-    moviesHtml += Movie.format(movie);
-  });
+  let moviesHtml = Movie.format(movies);
   html = html.replace("{{movieList}}", moviesHtml);
 
   return html;

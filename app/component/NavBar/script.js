@@ -2,7 +2,7 @@ let templateFile = await fetch("./component/NavBar/template.html");
 let template = await templateFile.text();
 
 let itemFile = await fetch("./component/NavBar/category-item.html");
-let itemtemplate = await templateFile.text();
+let itemtemplate = await itemFile.text();
 
 let NavBar = {};
 
@@ -14,8 +14,8 @@ NavBar.format = function (hAbout, hHome, categories = []) {
 
   let categoriesHtml = "";
 
-  categories.forEach((car) => {
-    let templateItem = itemtemplate.replaceAll("{{catname}}", cat);
+  categories.forEach((cat) => {
+    let templateItem = itemtemplate.replaceAll("{{catName}}", cat);
     categoriesHtml += templateItem;
   });
 

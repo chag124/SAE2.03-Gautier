@@ -14,8 +14,18 @@
     text-underline-offset: var(--_offset);
     cursor: pointer;
     transition: text-underline-offset 0.2s ease-in-out;
+
     &:hover {
       --_offset: 0.5rem;
     }
+  }
+
+  .navbar__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    justify-content: flex-start;
   }
 }

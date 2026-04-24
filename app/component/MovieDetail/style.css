@@ -31,7 +31,7 @@
   aspect-ratio: 16/9;
   border-radius: 8px;
   margin-bottom: 40px;
-  width: 80%;
+  width: 100%;
 }
 
 .movie-detail_trailer iframe {
@@ -43,8 +43,10 @@
 
 .movie-detail_container {
   display: flex;
-  align-items: flex-start;
-  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
 }
 
 .movie-detail_image {

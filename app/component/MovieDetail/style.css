@@ -50,9 +50,15 @@
 }
 
 .movie-detail_image {
-  width: 100%;
+  flex: 0 0 300px;
   border-radius: 15px;
   border: 2px solid white;
+  overflow: hidden;
+}
+
+.movie-detail_image img {
+  width: 100%;
+  display: block;
 }
 
 .movie-detail_info {

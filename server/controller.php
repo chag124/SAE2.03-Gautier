@@ -61,3 +61,7 @@ function readMovieDetailController() {
     
     return $movie;
 }
+
+function getCategoriesController(){
+    return getAllCategories();
+}

@@ -17,6 +17,7 @@
 
       window.C = {};
 
+      /*fonction pour ajouter un film*/
       C.handlerAddMovie = async function(){
         let form = document.querySelector('.movie-form');
         let fd = new FormData(form);
@@ -24,9 +25,13 @@
         V.renderLog(res);
       }
 
-      C.start = function () {
+      /*fonction pour le formualire avec les catégories*/
+
+
+      C.start = async function () {
         V.renderLog("Démarrage de l'application");
-        V.renderMovieForm("C.handlerAddMovie()");
+        const categories = await DataMovie.requestCategories();
+        V.renderMovieForm(categories, "C.handlerAddMovie()");
       };
 
       window.V = {};
@@ -38,7 +43,7 @@
 
       V.renderMovieForm = function (handler) {
         let content = document.querySelector("#add-movie");
-        content.innerHTML = MovieForm.format(handler);
+        content.innerHTML = MovieForm.format(categories,handler);
       };
 
       C.start();

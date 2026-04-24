@@ -1,0 +1,17 @@
+.movie-category {
+  margin: 2rem 0;
+}
+
+.movie-category_title {
+  color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: var(--ff-sans);
+  margin-bottom: 1rem;
+}
+
+.movie-category_list {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+}

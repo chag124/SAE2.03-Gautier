@@ -41,7 +41,7 @@
         content.innerHTML = Log.format(txt);
       };
 
-      V.renderMovieForm = function (handler) {
+      V.renderMovieForm = function (categories, handler) {
         let content = document.querySelector("#add-movie");
         content.innerHTML = MovieForm.format(categories,handler);
       };

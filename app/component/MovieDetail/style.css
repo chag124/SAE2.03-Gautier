@@ -20,6 +20,11 @@
   margin-bottom: 20px;
 }
 
+.movie-detail_button:hover {
+  background-color: var(--blue-light);
+  color: var(--color-blue-dark);
+}
+
 .movie-detail_trailer {
   aspect-ratio: 16/9;
   border-radius: 8px;

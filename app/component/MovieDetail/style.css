@@ -30,6 +30,7 @@
 
 .movie-detail_trailer {
   margin-bottom: 60px;
+  width: 100%;
 }
 
 .movie-detail_trailer iframe {

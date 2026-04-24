@@ -44,20 +44,20 @@ function insertMovie($name, $director, $year, $time, $description, $category, $i
         $stmt = $cnx->prepare($sql);
 
         // Exécute la requête SQL
-        $stmt->execute([
-            ':name'         => $name,
-            ':director'     => $director,
-            ':year'         => $year,
-            ':length'       => $time,  
-            ':description'  => $description,
-            ':id_category'  => $category,  
-            ':image'        => $image,
-            ':trailer'      => $trailer,
-            ':min_age'      => $age        
-        ]);
-        return true;
-    } catch (PDOException $e){
-        return false;
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':director', $director);
+        $stmt->bindParam(':year', $year);
+        $stmt->bindParam(':length', $length);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':id_category', $category);
+        $stmt->bindParam(':image', $image);
+        $stmt->bindParam(':trailer', $trailer);
+        $stmt->bindParam(':min_age', $age);
+
+        $stmt->execute();
+        return $stmt->rowCount(); 
+    } catch (PDOException $e) {
+        return false; 
     }
 }
 

@@ -33,6 +33,7 @@
   height: 100%;
   border-radius: 8px;
   border: none;
+  margin-bottom: 2rem;
 }
 
 .movie-detail_container {

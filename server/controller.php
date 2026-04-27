@@ -35,6 +35,7 @@ function readMoviesController(){
     return $groupeMovies;
 }
 
+/* Fonction pour ajouter un film */
 function addMovieController(){
     $name = $_POST['name'];
     $director = $_POST['director'];
@@ -78,4 +79,28 @@ function readMovieDetailController() {
 
 function getCategoriesController(){
     return getAllCategories();
+}
+
+/* Fonction pour ajouter un profil */
+function addProfileController(){
+    $name = $_POST['name'];
+    $image = $_POST['image'];
+    $age_restriction = $_POST['age_restriction'];
+
+    if (empty($name) || empty($image) || empty($age_restriction)){
+        return "Erreur : Tous les champs sont obligatoires";
+    }
+
+    if ($age_restriction == null || $age_restriction <0 || $age_restriction > 18){
+        return "Erreur; L'âge doit être un chiffre compris entre 0 et 18";
+    }
+
+    $res = insertProfile($name, $image, $age_restriction);
+
+    if ($res){
+        return "Le profil a bien été enregistré";
+    }
+    else {
+        return false;
+    }
 }

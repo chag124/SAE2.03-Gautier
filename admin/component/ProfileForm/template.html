@@ -1,0 +1,24 @@
+<form class="profil-form">
+  <h1 class="profil-form_title">J'ajoute un nouveau profil</h1>
+
+  <div class="profil-form_groupe">
+    <label for="name">Nom du profil</label>
+    <input required type="text" id="name" name="name" placeholder="Junior">
+  </div>
+
+  <div class="profil-form_groupe">
+    <label for="image">Nom du fichier de l'avatar</label>
+    <input required type="text" id="image" name="image">
+  </div>
+
+  <div class="profi-form_groupe">
+    <label for="age_restriction">Age</label>
+    <input required type="number" id="age_restriction" name="age_restriction" min="0" max="18">
+  </div>
+
+  <button class="profil-form_button" type="submit">Valider le profil</button>
+
+  <div id="profil-message"></div>
+
+</form>
+

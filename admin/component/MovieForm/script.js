@@ -7,9 +7,10 @@ MovieForm.format = function (categories, handler) {
     let html = template;
 
     let optionsHtml = "";
-    categories.forEach(cat => {
+
+    for (const cat of categories) {
         optionsHtml += `<option value="${cat.id}">${cat.name}</option>`;
-    })
+    }
 
     html = html.replace("{{categories_options}}", optionsHtml);
     html = html.replace("{{handler}}", handler);

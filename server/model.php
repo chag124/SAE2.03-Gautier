@@ -87,3 +87,19 @@ function getAllCategories(){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+/*fonction pour ajouter un profil*/
+function insertProfile($name, $image, $age_restriction){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "INSERT INTO SAE203_Profils (name, avatar, age_restriction) VALUES (:name, :avatar, :age_restriction)";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':avatar', $image);
+        $stmt->bindParam(':age_restriction', $age_restriction);
+        $stmt->execute();
+        return $stmt->rowCount();
+    } catch (PDOException $e) {
+        return false;
+    }
+}

@@ -5,18 +5,23 @@
 }
 
 .movie-category_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--color-white);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 2rem 0 1.5rem 0;
   font-family: var(--ff-sans);
-  margin-bottom: 1rem;
 }
 
 .movie-category_list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 25px;
   padding-bottom: 20px 0;
 }

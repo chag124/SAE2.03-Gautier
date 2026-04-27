@@ -9,11 +9,14 @@
   <body>
     <section id="log"></section>
     <section id="add-movie"></section>
+    <section id="add-profile"></section>
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
       import { MovieForm } from "./component/MovieForm/script.js";
       import { DataMovie } from "./data/dataMovie.js";
+      import { ProfileForm } from "./component/ProfileForm/script.js";
+      import { dataProfile } from "./data/dataProfile.js";
 
       window.C = {};
 
@@ -21,19 +24,32 @@
       C.handlerAddMovie = async function(){
         let form = document.querySelector('.movie-form');
         let fd = new FormData(form);
-        let res = await DataMovie.add(fd);
-        V.renderLog(res);
+        if(fd.reportValidity()){
+         let res = await DataMovie.add(fd);
+         V.renderLog(res);
+        }
       }
-
-      /*fonction pour le formualire avec les catégories*/
-
 
       C.start = async function () {
         V.renderLog("Démarrage de l'application");
+        /*fonction pour le formulaire avec les catégories*/
         const categories = await DataMovie.requestCategories();
         V.renderMovieForm(categories, "C.handlerAddMovie()");
+
+        V.renderProfileForm("C.handlerAddProfile()")
       };
 
+      /*fonction pour le formulaire de profil*/
+      C.handlerAddProfile = async function(){
+        let form = document.querySelector('.profil-form');
+        let fd = new FormData(form);
+        if(fd.reportValidity()){
+         let res = await dataProfile.add(fd);
+         V.renderLog(res);
+        }
+      };
+
+      /*vue*/
       window.V = {};
 
       V.renderLog = function (txt) {
@@ -44,6 +60,11 @@
       V.renderMovieForm = function (categories, handler) {
         let content = document.querySelector("#add-movie");
         content.innerHTML = MovieForm.format(categories,handler);
+      };
+
+      V.renderProfileForm = function (handler) {
+        let content = document.querySelector("#add-profile");
+        content.innerHTML = ProfileForm.format(handler);
       };
 
       C.start();

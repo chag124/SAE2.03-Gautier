@@ -36,15 +36,15 @@ function readMoviesController(){
 }
 
 function addMovieController(){
-    $name = $_POST['name'] ?? "";
-    $director = $_POST['director'] ?? "";
-    $year = $_POST['year'] ?? "";
-    $time = $_POST['time'] ?? "";
-    $description = $_POST['description'] ?? "";
-    $category = $_POST['category'] ?? "";
-    $image = $_POST['image'] ?? "";
-    $trailer = $_POST['trailer'] ?? "";
-    $age = $_POST['age'] ?? "";
+    $name = $_POST['name'];
+    $director = $_POST['director'];
+    $year = $_POST['year'];
+    $time = $_POST['time'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
+    $image = $_POST['image'];
+    $trailer = $_POST['trailer'];
+    $age = $_POST['age'];
 
     if (empty($name) || empty($director) || empty($category)){
         return "Erreur : Tous les champs sont obligatoires";

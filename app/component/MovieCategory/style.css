@@ -1,5 +1,7 @@
 .movie-category {
   margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-category_title {
@@ -12,6 +14,9 @@
 
 .movie-category_list {
   display: flex;
-  gap: 15px;
-  padding-bottom: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px;
+  padding-bottom: 20px 0;
 }

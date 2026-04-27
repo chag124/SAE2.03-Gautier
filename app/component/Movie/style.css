@@ -1,14 +1,13 @@
 #content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-  justify-content: center;
-  justify-items: center;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 40px;
   background-color: var(--color-blue-dark);
 }
 
 .movie-card {
+  width: 220px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -26,13 +25,13 @@
   }
 
   .movie-card_content {
-    padding: 20px;
     text-align: center;
+    padding: 10px 5px;
   }
 
   .movie-card_title {
     color: var(--color-white);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--ff-sans);
   }

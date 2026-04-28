@@ -14,9 +14,9 @@
  * DBPWD : Mot de passe pour se connecter à la base de données.
  */
 define("HOST", "localhost");
-define("DBNAME", "gautier58");
-define("DBLOGIN", "gautier58");
-define("DBPWD", "gautier58");
+define("DBNAME", "SAE203");
+define("DBLOGIN", "usersae203");
+define("DBPWD", "mdp_usersae203");
 
 
 function getAllMovies(){
@@ -99,6 +99,19 @@ function insertProfile($name, $image, $age_restriction){
         $stmt->bindParam(':age_restriction', $age_restriction);
         $stmt->execute();
         return $stmt->rowCount();
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+/*fonction pour lire les profils*/
+function getAllProfiles(){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "SELECT id, name, avatar FROM SAE203_Profils ORDER BY name ASC";
+        $stmt = $cnx->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     } catch (PDOException $e) {
         return false;
     }

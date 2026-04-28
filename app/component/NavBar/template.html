@@ -9,4 +9,12 @@
 
     <li class="navbar__item" onclick="{{hAbout}}">About</li>
   </ul>
+
+  <ul class="navbar__list">
+    <li class="navbar__item navbar {{activeClass}}">
+      <img class="navbar__profile-img" src="/~gautier58/SAE2.03-Gautier/server/images/{{activeAvatar}}" id="nav-active-img">
+      <span class="navbar-item_active"> {{activeProfileName}}</span>
+      <ul class="navbar__menu">{{profileItems}}</ul>
+    </li>
+  </ul>
 </nav>

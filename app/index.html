@@ -17,11 +17,18 @@
       import { MovieCategory } from "./component/MovieCategory/script.js";
       import { DataMovie } from "./data/dataMovie.js";
       import { MovieDetail } from "./component/MovieDetail/script.js";
+      import { dataProfile } from "./data/dataProfile.js";
 
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
       // Une fois l'application terminée, on pourrait remettre let C.
       window.C = {};
+
+      /*variables pour l'état de l'application*/
+      window.activeProfile = null;
+      window.allProfiles = [];
+      window.allCategories = [];
+
 
       C.handlerAbout = function () {
         alert(
@@ -50,10 +57,26 @@
         V.renderOneCategory(categoryName);
       }
 
+      /*fonction pour afficher les profils*/
+      C.handlerChangeProfile = function (id, name){
+        let fullProfile = null;
+
+        for (let i=0; i<window.allProfiles.length; i++){
+          if (window.allProfiles[i].id == id){
+            fullProfile = window.allProfiles[i];
+            break;
+          }
+        }
+        window.activeProfile = fullProfile;
+        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", window.allCategories, window.allProfiles, window.activeProfile);
+      }
+
       C.start = async function () {
         const data = await DataMovie.requestMovies();
         const categories = Object.keys(data);
-        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", categories);
+        window.allProfiles = await dataProfile.read();
+
+        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", categories, window.allProfiles, window.activeProfile);
         V.renderMoviesByCategory(data);
       };
 
@@ -67,9 +90,9 @@
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar = function (hAbout, hHome, categories) {
+      V.renderNavBar = function (hAbout, hHome, categories, profiles, activeProfile) {
         let header = document.querySelector("#header");
-        header.innerHTML = NavBar.format(hAbout,hHome, categories);
+        header.innerHTML = NavBar.format(hAbout,hHome, categories, profiles, activeProfile);
       };
 
       V.renderMovies = function (movies) {

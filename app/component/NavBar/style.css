@@ -38,6 +38,11 @@
   .navbar__menu-item {
     text-decoration: none;
     font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
   }
 
   .navbar__list {
@@ -47,5 +52,24 @@
     padding: 0;
     gap: 30px;
     justify-content: flex-start;
+  }
+
+  .navbar__profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /*pour l'affichage des images avatar des profils*/
+  .hidden img {
+    display: none;
+  }
+
+  .visible img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 }

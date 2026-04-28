@@ -104,3 +104,9 @@ function addProfileController(){
         return false;
     }
 }
+
+/* Fonction pour lire les profils */
+function readProfilesController(){
+    $profiles = getAllProfiles();
+    return $profiles;
+}

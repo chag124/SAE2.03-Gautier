@@ -24,7 +24,7 @@
       C.handlerAddMovie = async function(){
         let form = document.querySelector('.movie-form');
         let fd = new FormData(form);
-        if(fd.reportValidity()){
+        if(form.reportValidity()){
          let res = await DataMovie.add(fd);
          V.renderLog(res);
         }
@@ -36,14 +36,17 @@
         const categories = await DataMovie.requestCategories();
         V.renderMovieForm(categories, "C.handlerAddMovie()");
 
-        V.renderProfileForm("C.handlerAddProfile()")
+        V.renderProfileForm("C.handlerAddProfile(event)")
       };
 
       /*fonction pour le formulaire de profil*/
-      C.handlerAddProfile = async function(){
+      C.handlerAddProfile = async function(event){
+        if(event)event.preventDefault();
+
         let form = document.querySelector('.profil-form');
         let fd = new FormData(form);
-        if(fd.reportValidity()){
+        
+        if(form.reportValidity()){
          let res = await dataProfile.add(fd);
          V.renderLog(res);
         }

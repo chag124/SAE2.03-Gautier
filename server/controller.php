@@ -91,8 +91,8 @@ function addProfileController(){
         return "Erreur : Tous les champs sont obligatoires";
     }
 
-    if ($age_restriction == null || $age_restriction <0 || $age_restriction > 18){
-        return "Erreur; L'âge doit être un chiffre compris entre 0 et 18";
+    if ($age_restriction == null || $age_restriction <0 || $age_restriction > 99){
+        return "Erreur; L'âge doit être un chiffre compris entre 0 et 99";
     }
 
     $res = insertProfile($name, $image, $age_restriction);

@@ -19,18 +19,19 @@ define("DBLOGIN", "gautier58");
 define("DBPWD", "gautier58");
 
 
-function getAllMovies(){
+function getAllMovies($ageLimite = 0){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour récupérer le menu avec des paramètres
     $sql = "SELECT SAE203_Movie.id, SAE203_Movie.name, SAE203_Movie.image, SAE203_Category.name AS category_name 
     FROM SAE203_Movie
     JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id
+    WHERE SAE203_Movie.min_age <= :ageLimite
     ORDER BY SAE203_Category.name ASC, SAE203_Movie.name ASC;";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête SQL
-    $stmt->execute();
+    $stmt->execute([':ageLimite' => $ageLimite]);
     // Récupère les résultats de la requête sous forme d'objets
     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne les résultats
@@ -108,7 +109,7 @@ function insertProfile($name, $image, $age_restriction){
 function getAllProfiles(){
     try {
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
-        $sql = "SELECT id, name, avatar FROM SAE203_Profils ORDER BY name ASC";
+        $sql = "SELECT id, name, avatar, age_restriction FROM SAE203_Profils ORDER BY name ASC";
         $stmt = $cnx->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);

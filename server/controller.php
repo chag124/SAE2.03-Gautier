@@ -22,7 +22,9 @@ require("model.php");
 
 
 function readMoviesController(){
-    $movies = getAllMovies();
+
+    $ageLimite = $_REQUEST['age'];
+    $movies = getAllMovies($ageLimite);
 
     $groupeMovies = [];
     foreach ($movies as $movie){

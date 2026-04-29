@@ -18,7 +18,7 @@ define("DBNAME", "gautier58");
 define("DBLOGIN", "gautier58");
 define("DBPWD", "gautier58");
 
-
+/*AFFICHER TOUS LES FILMS */
 function getAllMovies($ageLimite = 0){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
@@ -37,6 +37,7 @@ function getAllMovies($ageLimite = 0){
     return $res; // Retourne les résultats
 }
 
+/*AJOUTER UN FILM*/
 function insertMovie($name, $director, $year, $length, $description, $category, $image, $trailer, $age){
     try {
         // Connexion à la base de données
@@ -65,6 +66,7 @@ function insertMovie($name, $director, $year, $length, $description, $category, 
     }
 }
 
+/*RÉCUPÉRER UN FILM PAR SON ID*/
 function getMovieById($id) {
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
@@ -81,6 +83,7 @@ function getMovieById($id) {
     return $res; 
 }
 
+/*RÉCUPÉRER TOUTES LES CATÉGORIES*/
 function getAllCategories(){
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     $sql = "SELECT id, name FROM SAE203_Category ORDER BY name ASC";
@@ -89,23 +92,31 @@ function getAllCategories(){
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 
-/*fonction pour ajouter un profil*/
-function insertProfile($name, $image, $age_restriction){
+/*ENREGISTRER (AJOUTER OU MODIFIER) UN PROFIL*/
+function saveProfile($id, $name, $image, $age_restriction){
     try {
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
-        $sql = "INSERT INTO SAE203_Profils (name, avatar, age_restriction) VALUES (:name, :avatar, :age_restriction)";
-        $stmt = $cnx->prepare($sql);
+
+        if (empty($id)) {
+             $sql = "INSERT INTO SAE203_Profils (name, avatar, age_restriction) VALUES (:name, :avatar, :age_restriction)";
+             $stmt = $cnx->prepare($sql);
+        } else {
+             $sql = "REPLACE INTO SAE203_Profils (id, name, avatar, age_restriction) VALUES (:id, :name, :avatar, :age_restriction)";
+             $stmt = $cnx->prepare($sql);
+             $stmt->bindParam(':id', $id);
+        }
+
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':avatar', $image);
         $stmt->bindParam(':age_restriction', $age_restriction);
         $stmt->execute();
-        return $stmt->rowCount();
+        return true;
     } catch (PDOException $e) {
         return false;
     }
 }
 
-/*fonction pour lire les profils*/
+/*RÉCUPÉRER TOUS LES PROFILS*/
 function getAllProfiles(){
     try {
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
@@ -117,3 +128,5 @@ function getAllProfiles(){
         return false;
     }
 }
+
+/*AJOUTER UN FILM EN FAVORIS*/

@@ -1,19 +1,21 @@
 <form class="profil-form" onsubmit="{{handler}}">
-  <h1 class="profil-form_title">J'ajoute un nouveau profil</h1>
+  <h1 class="profil-form_title">Ajouter ou Modifier un profil</h1>
+
+  <input type="hidden" name="id" id="profile_id">
 
   <div class="profil-form_groupe">
     <label for="name">Nom du profil</label>
-    <input required type="text" id="name" name="name" placeholder="Junior">
+    <input required type="text" id="profile_name" name="name" placeholder="Junior">
   </div>
 
   <div class="profil-form_groupe">
     <label for="image">Nom du fichier de l'avatar</label>
-    <input required type="text" id="image" name="image">
+    <input required type="text" id="profile_image" name="image">
   </div>
 
   <div class="profi-form_groupe">
     <label for="age_restriction">Age</label>
-    <input required type="number" id="age_restriction" name="age_restriction" min="0" max="18">
+    <input required type="number" id="profile_age_restriction" name="age_restriction" min="0" max="99">
   </div>
 
   <button class="profil-form_button" type="submit">Valider le profil</button>

@@ -20,7 +20,7 @@
  */
 require("model.php");
 
-
+/*LIRE LES FILMS*/
 function readMoviesController(){
 
     $ageLimite = $_REQUEST['age'];
@@ -37,7 +37,7 @@ function readMoviesController(){
     return $groupeMovies;
 }
 
-/* Fonction pour ajouter un film */
+/*AJOUTER UN FILM*/
 function addMovieController(){
     $name = $_POST['name'];
     $director = $_POST['director'];
@@ -68,6 +68,7 @@ function addMovieController(){
     }
 }
 
+/*LIRE LES DÉTAILS D'UN FILM*/
 function readMovieDetailController() {
     $id = $_REQUEST['id'] ?? null;
 
@@ -83,8 +84,9 @@ function getCategoriesController(){
     return getAllCategories();
 }
 
-/* Fonction pour ajouter un profil */
-function addProfileController(){
+/*ENREGISTRER (AJOUTER OU MODIFIER) UN PROFIL*/
+function saveProfileController(){
+    $id = (!empty($_POST['id'])) ? $_POST['id'] : null;
     $name = $_POST['name'];
     $image = $_POST['image'];
     $age_restriction = $_POST['age_restriction'];
@@ -97,7 +99,7 @@ function addProfileController(){
         return "Erreur; L'âge doit être un chiffre compris entre 0 et 99";
     }
 
-    $res = insertProfile($name, $image, $age_restriction);
+    $res = saveProfile($id, $name, $image, $age_restriction);
 
     if ($res){
         return "Le profil a bien été enregistré";
@@ -107,8 +109,36 @@ function addProfileController(){
     }
 }
 
-/* Fonction pour lire les profils */
+/*LIRE TOUS LES PROFILS*/
 function readProfilesController(){
     $profiles = getAllProfiles();
     return $profiles;
+}
+
+/*AJOUTER UN FILM EN FAVORIS*/
+function addFavoriteController(){
+    $id_profile = $_POST['id_profile'];
+    $id_movie = $_POST['id_movie'];
+
+    if (!($id_profile) || !($id_movie)){
+        return "Les paramètres sont manquants";
+    }
+    $res = addFavorite($id_profile, $id_movie);
+
+    if ($res){
+        return "Le film a bien été ajouté aux favoris";
+    }
+    else {
+        return false;
+    }
+}
+
+/*LIRE LES FILMS FAVORIS D'UN PROFIL*/
+function readFavoriteMoviesController(){
+    $id_profile = $_REQUEST['id_profile'];
+
+    if (!($id_profile)){
+        return false;
+    }
+    return getFavoriteMovies($id_profile);
 }

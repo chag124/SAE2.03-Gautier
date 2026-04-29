@@ -76,8 +76,8 @@ if ( isset($_REQUEST['todo']) ){
       $data = getCategoriesController();
       break;
 
-    case 'addProfile':
-      $data = addProfileController();
+    case 'saveProfile':
+      $data = saveProfileController();
       break;
 
     case 'readProfiles':

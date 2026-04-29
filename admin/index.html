@@ -10,12 +10,14 @@
     <section id="log"></section>
     <section id="add-movie"></section>
     <section id="add-profile"></section>
+    <section id="list-profiles"></section>
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
       import { MovieForm } from "./component/MovieForm/script.js";
       import { DataMovie } from "./data/dataMovie.js";
       import { ProfileForm } from "./component/ProfileForm/script.js";
+      import { ProfileList } from "./component/ProfileList/script.js";
       import { dataProfile } from "./data/dataProfile.js";
 
       window.C = {};
@@ -30,27 +32,59 @@
         }
       }
 
+      /*Bloc C.start*/
       C.start = async function () {
         V.renderLog("Démarrage de l'application");
+
         /*fonction pour le formulaire avec les catégories*/
         const categories = await DataMovie.requestCategories();
         V.renderMovieForm(categories, "C.handlerAddMovie()");
 
-        V.renderProfileForm("C.handlerAddProfile(event)")
+        /*formulaire pour les profils*/
+        V.renderProfileForm("C.handlerSaveProfile(event)")
+
+        /*affichage de la liste des profils*/
+        window.allProfiles = await dataProfile.read();
+        V.renderProfileList(window.allProfiles);
       };
 
       /*fonction pour le formulaire de profil*/
-      C.handlerAddProfile = async function(event){
+      C.handlerSaveProfile = async function(event){
         if(event)event.preventDefault();
 
         let form = document.querySelector('.profil-form');
         let fd = new FormData(form);
         
         if(form.reportValidity()){
-         let res = await dataProfile.add(fd);
+         let res = await dataProfile.save(fd);
          V.renderLog(res);
-        }
+        };
+
+        window.allProfiles = await dataProfile.read();
+        V.renderProfileList(window.allProfiles);
+
+        form.reset();
+        document.querySelector('#profile_id').value= "";
       };
+
+      /*fonction pour afficher la liste des profils*/
+      C.handlerLoadProfileToForm = async function(id){
+        let p = null;
+        for (let i=0; i<window.allProfiles.length; i++){
+          if(window.allProfiles[i].id == id){
+            p = window.allProfiles[i];
+            break;
+          }
+        }
+        if(p){
+          document.querySelector('#profile_id').value = p.id;
+          document.querySelector('#profile_name').value = p.name;
+          document.querySelector('#profile_image').value = p.avatar;
+          document.querySelector('#profile_age_restriction').value = p.age_restriction;
+          document.querySelector('.profil-form_title').textContent = "Modifier le profil " + p.name;
+        }
+
+      }
 
       /*vue*/
       window.V = {};
@@ -69,6 +103,16 @@
         let content = document.querySelector("#add-profile");
         content.innerHTML = ProfileForm.format(handler);
       };
+
+      V.renderProfileList = function (profiles) {
+        let content = document.querySelector("#list-profiles");
+        content.innerHTML = ProfileList.format(profiles);
+      };
+
+       /*fonction pour afficher les détails d'un film*/
+       C.handlerMovieDetail = async function (id){
+        const movie = await DataMovie.requestOne(id);
+       }
 
       C.start();
 

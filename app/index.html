@@ -29,6 +29,7 @@
       window.activeProfile = null;
       window.allProfiles = [];
       window.allCategories = [];
+      window.favorites = [];
 
 
       C.handlerAbout = function () {
@@ -36,6 +37,39 @@
           "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !"
         );
       };
+
+      /*fonction pour ajouter un film en favoris*/
+      C.handlerAddFavorite = async function(id_movie){
+        if (window.activeProfile == null){
+          alert("Veuillez sélectionner un profil");
+          return;
+        }
+        await dataFavorite.add(window.activeProfile.id, id_movie);
+        alert("Film ajouté aux favoris:"); 
+        C.handlerHome();     
+      }
+
+      /*fonction pour afficher les favoris*/
+      C.handlerShowFavorites = async function(){
+        if (window.activeProfile == null){
+          alert("Veuillez sélectionner un profil pour voir vos favoris");
+          return;
+        }
+        window.favorites = await dataFavorite.read(window.activeProfile.id);
+        V.renderFavorites(window.favorites);
+      }
+
+      /*fonction pour supprimer un film des favoris*/
+      C.handlerDeleteFavorite = async function(id_movie){
+        if (window.activeProfile == null){
+          alert("Veuillez sélectionner un profil");
+          return;
+        }
+        await dataFavorite.delete(window.activeProfile.id, id_movie);
+        alert("Film supprimé des favoris"); 
+        
+        C.handlerShowFavorites();
+      }
 
       /*fonction pour afficher les détails du film*/
       C.handlerDetail = async function(id){
@@ -53,6 +87,7 @@
 
         if(window.activeProfile != null){
           ageLimite = window.activeProfile.age_restriction;
+          window.favorites = await dataFavorite.read(window.activeProfile.id);
         }
         const data = await DataMovie.requestMovies(ageLimite);
 
@@ -143,6 +178,11 @@
           content.innerHTML = MovieCategory.format (categoryName, data [categoryName]);
         }
       }
+
+      V.renderFavorites = function (favorites){
+        let content = document.querySelector("#content");
+        content.innerHTML = MovieCategory.format("Mes favoris", favorites);
+       }
 
       C.start(); // Démarre l'application
 

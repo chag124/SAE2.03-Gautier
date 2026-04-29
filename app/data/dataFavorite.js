@@ -26,7 +26,20 @@ dataFavorite.read = async function (id_profile) {
         return data;
     }
     catch (error) {
-        return "Erreur lors de la récupération des films favoris";
+        return [];
+    }
+}
+
+/*supprimer un film des favoris*/
+dataFavorite.delete = async function (id_profile, id_movie) {
+    let url = HOST_URL + "/server/script.php?todo=deleteFavoriteMovie&id_profile=" + id_profile + "&id_movie=" + id_movie;
+    try {
+        let answer = await fetch(url);
+        let data = await answer.json();
+        return data;
+    }
+    catch (error) {
+        return "Erreur lors de la suppression des favoris";
     }
 }
 

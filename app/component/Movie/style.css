@@ -22,12 +22,10 @@
   }
 
   .movie-card_button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
   .movie-card_button:hover {
@@ -39,7 +37,9 @@
   }
 
   .movie-card_content {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 5px;
   }
 
@@ -48,6 +48,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--ff-sans);
+    margin: 0;
   }
 }
 

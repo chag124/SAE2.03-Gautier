@@ -130,3 +130,48 @@ function getAllProfiles(){
 }
 
 /*AJOUTER UN FILM EN FAVORIS*/
+function addFavorite($id_profile, $id_movie){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "INSERT INTO SAE203_Favorites (id_profile, id_movie) VALUES (:id_profile, :id_movie)";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':id_profile', $id_profile);
+        $stmt->bindParam(':id_movie', $id_movie);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+/*RÉCUPÉRER LES FILMS FAVORIS D'UN PROFIL*/
+function getFavoriteMovies($id_profile){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "SELECT SAE203_Movie.id, SAE203_Movie.name, SAE203_Movie.image 
+        FROM SAE203_Movie 
+        INNER JOIN SAE203_Favorites ON SAE203_Movie.id = SAE203_Favorites.id_movie 
+        WHERE SAE203_Favorites.id_profile = :id_profile";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':id_profile', $id_profile);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+/*SUPPRIMER UN FILM DES FAVORIS*/
+function deleteFavorite($id_profile, $id_movie){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "DELETE FROM SAE203_Favorites WHERE id_profile = :id_profile AND id_movie = :id_movie";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':id_profile', $id_profile);
+        $stmt->bindParam(':id_movie', $id_movie);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
+}

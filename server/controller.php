@@ -116,9 +116,9 @@ function readProfilesController(){
 }
 
 /*AJOUTER UN FILM EN FAVORIS*/
-function addFavoriteController(){
-    $id_profile = $_POST['id_profile'];
-    $id_movie = $_POST['id_movie'];
+function addFavoriteMovieController(){
+    $id_profile = $_REQUEST['id_profile'];
+    $id_movie = $_REQUEST['id_movie'];
 
     if (!($id_profile) || !($id_movie)){
         return "Les paramètres sont manquants";
@@ -141,4 +141,22 @@ function readFavoriteMoviesController(){
         return false;
     }
     return getFavoriteMovies($id_profile);
+}
+
+/*SUPPRIMER UN FILM DES FAVORIS*/
+function deleteFavoriteMovieController(){
+    $id_profile = $_REQUEST['id_profile'];
+    $id_movie = $_REQUEST['id_movie'];
+
+    if (!($id_profile) || !($id_movie)){
+        return "Les paramètres sont manquants";
+    }
+    $res = deleteFavorite($id_profile, $id_movie);
+
+    if ($res){
+        return "Le film a bien été supprimé des favoris";
+    }
+    else {
+        return false;
+    }
 }

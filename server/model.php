@@ -175,3 +175,17 @@ function deleteFavorite($id_profile, $id_movie){
         return false;
     }
 }
+
+/*RÉCUPÉRER LES FILMS POPULAIRES*/
+function getPopularMovies($age = 0){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "SELECT * FROM SAE203_Movie WHERE popular = 1 AND min_age <= :age";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':age', $age);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        return false;
+    }
+}

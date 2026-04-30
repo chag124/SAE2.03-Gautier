@@ -62,6 +62,7 @@
 
 .movie-detail_info {
   flex: 1;
+  text-align: left;
 }
 
 .movie-detail_title {

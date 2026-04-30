@@ -15,4 +15,11 @@ DataMovie.requestMovieDetails = async function (id) {
     return data;
 }
 
+DataMovie.requestPopularMovies = async function (age = 0) {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=getPopularMovies&age=" + age);
+    let data = await answer.json();
+    return data;
+}
+
+
 export { DataMovie };

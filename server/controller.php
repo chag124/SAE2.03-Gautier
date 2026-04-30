@@ -160,3 +160,10 @@ function deleteFavoriteMovieController(){
         return false;
     }
 }
+
+/*RÉCUPÉRER LES FILMS POPULAIRES*/
+function getPopularMoviesController(){
+    $age = $_REQUEST['age'];
+    $res = getPopularMovies($age);
+    return $res;
+}

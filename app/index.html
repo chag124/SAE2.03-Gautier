@@ -19,6 +19,7 @@
       import { MovieDetail } from "./component/MovieDetail/script.js";
       import { dataProfile } from "./data/dataProfile.js";
       import { dataFavorite } from "./data/dataFavorite.js";
+      import { MoviePopular } from "./component/MoviePopular/script.js";
 
       // Controleur
       // Rappel, écrire window.C plutôt que let C est nécessaire pour tester depuis la console du navigateur
@@ -82,26 +83,22 @@
       };
 
       /*fonction pour revenir à la liste des films*/
-      C.handlerHome = async function (){
-        let ageLimite = 0;
+      C.handlerHome = async function () {
+      let ageLimite = 0;
 
-        if(window.activeProfile != null){
-          ageLimite = window.activeProfile.age_restriction;
-          window.favorites = await dataFavorite.read(window.activeProfile.id);
-        }
-        const data = await DataMovie.requestMovies(ageLimite);
-
-        window.allCategories = Object.keys(data);
-        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", window.allCategories, window.allProfiles, window.activeProfile);
-        
-        let nbcategories = Object.keys(data).length;
-
-        if (nbcategories == 0){
-          document.querySelector("#content").textContent = "Aucun film disponible pour votre tranche d'âge.";
-        } else {
-          V.renderMoviesByCategory(data);
-        }
+      if (window.activeProfile != null) {
+        ageLimite = window.activeProfile.age_restriction;
+        window.favorites = await dataFavorite.read(window.activeProfile.id);
       }
+
+      const data = await DataMovie.requestMovies(ageLimite);
+      const popularData = await DataMovie.requestPopularMovies(ageLimite);
+
+      window.allCategories = Object.keys(data);
+      V.renderNavBar("C.handlerAbout()", "C.handlerHome()", window.allCategories, window.allProfiles, window.activeProfile);
+
+      V.renderHomePage(popularData, data);
+    };
 
       /*fonction pour le menu déroulant NavBar*/
       C.handlerCategoryChange = function(categoryName){
@@ -126,15 +123,15 @@
       }
 
       C.start = async function () {
-        const data = await DataMovie.requestMovies(0);
-        const categories = Object.keys(data);
-        window.allCategories = categories;
         window.allProfiles = await dataProfile.read();
+        const data = await DataMovie.requestMovies(0);
+        const popularData = await DataMovie.requestPopularMovies(0); 
+        
+        window.allCategories = Object.keys(data);
 
-        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", categories, window.allProfiles, window.activeProfile);
-        V.renderMoviesByCategory(data);
-
-      };
+        V.renderNavBar("C.handlerAbout()", "C.handlerHome()", window.allCategories, window.allProfiles, window.activeProfile);
+        V.renderHomePage(popularData, data); 
+    };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
       window.V = {};
@@ -151,9 +148,20 @@
         header.innerHTML = NavBar.format(hAbout,hHome, categories, profiles, activeProfile);
       };
 
-      V.renderMovies = function (movies) {
+      /*fonction pour afficher la page d'accueil avec les films populaires et les catégories de films*/
+      V.renderHomePage = function(popularData, categoryData) {
         let content = document.querySelector("#content");
-        content.innerHTML = Movie.format(movies);
+        let html = "";
+        html += MoviePopular.format(popularData);
+
+        if (Object.keys(categoryData).length == 0){
+            html += "Aucun film disponible pour votre tranche d'âge.";
+        } else {
+            for (const categoryName in categoryData){
+                html += MovieCategory.format(categoryName, categoryData[categoryName]);
+            }
+        }
+        content.innerHTML = html;
       };
 
       V.renderMovieDetail = function (movie) {

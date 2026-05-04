@@ -4,12 +4,13 @@
     <title>SAE2.03 APP</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" as="image" href="../server/images/wonderwoman.webp">
     <link rel="stylesheet" href="./css/base.css" />
   </head>
 
   <body>
     <header id="header"></header>
-    <section id="content"></section>
+    <main id="content"></main>
 
     <script type="module">
       import { NavBar } from "./component/NavBar/script.js";
@@ -39,6 +40,26 @@
           "Ceci est une base de projet pour la SAE2.03 édition 2025. Bonne chance !"
         );
       };
+
+
+      /*fonction pour la barre de recherche*/
+      C.handlerSearch = async function(){
+        const searchInput = document.querySelector('#search-input');
+        const query = searchInput.value.trim();
+
+        if (query.length === 0) {
+          alert("Veuillez entrer un terme de recherche");
+          return;
+        }
+
+        let ageLimite = 0;
+        if (window.activeProfile != null) {
+          ageLimite = window.activeProfile.age_restriction;
+        }
+        const searchResults = await DataMovie.searchMovies(query, ageLimite);
+
+        V.renderSearchResults(searchResults, query);
+      }
 
       /*fonction pour ajouter un film en favoris*/
       C.handlerAddFavorite = async function(id_movie){
@@ -203,6 +224,11 @@
         let content = document.querySelector("#content");
         content.innerHTML = Stats.format(stats);
       };
+
+      V.renderSearchResults = function (results, query){
+        let content = document.querySelector("#content");
+        content.innerHTML = MovieCategory.format(`Résultats de recherche pour "${query}"`, results);
+      }
 
       C.start(); // Démarre l'application
 

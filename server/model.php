@@ -261,3 +261,20 @@ function getStats(){
         return false;
     }
 }
+
+/*RECHERCHER DES FILMS*/
+function searchMovies($query, $age = 0){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "SELECT * FROM SAE203_Movie WHERE name LIKE :query AND min_age <= :age";
+        $stmt = $cnx->prepare($sql);
+        $searchQuery = '%' . $query . '%';
+
+        $stmt->bindParam(':query', $searchQuery);
+        $stmt->bindParam(':age', $age);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        return false;
+    }
+}

@@ -173,3 +173,15 @@ function getStatsController(){
     $res = getStats();
     return $res;
 }
+
+/*FONCTION DE RECHERCHE DE FILMS*/
+function searchMoviesController(){
+    $query = $_REQUEST['query'];
+    $age = $_REQUEST['age'];
+    $res = searchMovies($query, $age);
+
+    if ($res === false){
+        return false;
+    }
+    return $res;
+}

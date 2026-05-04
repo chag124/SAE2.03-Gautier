@@ -167,3 +167,9 @@ function getPopularMoviesController(){
     $res = getPopularMovies($age);
     return $res;
 }
+
+/*FONCTION POUR LES STATISTIQUES*/
+function getStatsController(){
+    $res = getStats();
+    return $res;
+}

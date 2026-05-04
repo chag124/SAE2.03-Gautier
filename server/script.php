@@ -99,6 +99,10 @@ if ( isset($_REQUEST['todo']) ){
     case 'getPopularMovies':
       $data = getPopularMoviesController();
       break;
+    
+    case 'getStats':
+      $data = getStatsController();
+      break;
 
     default: // il y a un paramètre todo mais sa valeur n'est pas reconnue/supportée
       echo json_encode('[error] Unknown todo value');

@@ -189,3 +189,75 @@ function getPopularMovies($age = 0){
         return false;
     }
 }
+
+/*RÉCUPÉRER LES STATISTIQUES*/
+function getStats(){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+
+        $stats = [];
+
+        /*Nombre total de profils crées*/
+        $sql1 = "SELECT COUNT(*) AS nb FROM SAE203_Profils";
+        $stmt1 = $cnx->prepare($sql1);
+        $stmt1->execute();
+        $stats['total_profiles'] = $stmt1->fetch(PDO::FETCH_OBJ)->nb;
+
+        /*Nombre total de films*/
+        $sql2 = "SELECT COUNT(*) AS nb FROM SAE203_Movie";
+        $stmt2 = $cnx->prepare($sql2);
+        $stmt2->execute();
+        $stats['total_movies'] = $stmt2->fetch(PDO::FETCH_OBJ)->nb;
+
+        /*Nombre moyen de favoris par profil*/
+        $sql3 = "SELECT COUNT(*) AS nb FROM SAE203_Favorites";
+        $stmt3 = $cnx->prepare($sql3);
+        $stmt3->execute();
+        $stats['total_favorites'] = $stmt3->fetch(PDO::FETCH_OBJ)->nb;
+
+        $stats['avg_favorites'] = 0;
+        if ($stats['total_profiles'] > 0){
+            $stats['avg_favorites'] = $stats['total_favorites'] / $stats['total_profiles'];
+        }
+
+        /*Film le plus ajouté aux favoris*/
+        $sql4 = "SELECT SAE203_Movie.name FROM SAE203_Favorites 
+        JOIN SAE203_Movie ON SAE203_Favorites.id_movie = SAE203_Movie.id 
+        GROUP BY SAE203_Favorites.id_movie 
+        ORDER BY COUNT(*) 
+        DESC LIMIT 1";
+        $stmt4 = $cnx->prepare($sql4);
+        $stmt4->execute();
+
+        $res4 = $stmt4->fetch(PDO::FETCH_OBJ);
+
+        if ($res4){
+            $stats['most_favorited_movie'] = $res4->name;
+        }
+        else {
+            $stats['most_favorited_movie'] = "Aucun";
+        }
+
+        /*Catégorie la plus populaire*/
+        $sql5 = "SELECT SAE203_Category.name FROM SAE203_Movie 
+        JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id 
+        GROUP BY SAE203_Movie.id_category 
+        ORDER BY COUNT(*) 
+        DESC LIMIT 1";
+        $stmt5 = $cnx->prepare($sql5);
+        $stmt5->execute();
+
+        $res5 = $stmt5->fetch(PDO::FETCH_OBJ);
+
+        if ($res5){
+            $stats['most_popular_category'] = $res5->name;
+        }
+        else {
+            $stats['most_popular_category'] = "Aucune";
+        }
+
+        return $stats;
+    } catch (PDOException $e) {
+        return false;
+    }
+}

@@ -1,0 +1,32 @@
+.movie-category {
+  margin: 3rem 0;
+  padding: 0 40px;
+}
+
+.movie-category_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.movie-category_title {
+  color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--ff-sans);
+  margin: 0;
+}
+
+.movie-category_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0;
+}

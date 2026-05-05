@@ -1,0 +1,34 @@
+<nav class="navbar font-sans">
+
+  <div class="navbar-left">
+    <div class="navbar__item" onclick="{{hHome}}">Accueil</div>
+  </div>
+
+  <div class="navbar-center">
+    <ul class="navbar__list">
+      <li class="navbar__item" onclick="C.handlerShowFavorites()">Mes Favoris</li>
+      <li class="navbar__item" onclick="C.handlerShowStatistics()">Statistiques</li>
+      <li class="navbar__item">
+        <span class="navbar__cat">Catégories</span>
+        <ul class="navbar__menu">{{categoryItems}}</ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar-right">
+    <div class="search-section">
+      <div class="search-bar-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-bar-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input type="text" id="search-input" placeholder="Rechercher un film..." class="search-bar-input" onchange="C.handlerSearch()">
+      </div>
+    </div>
+
+    <li class="navbar__item navbar-profile-button {{activeClass}}">
+        <img class="navbar__profile-img" src="../server/images/{{activeAvatar}}" id="nav-active-img">
+        <span class="navbar-item_active"> {{activeProfileName}}</span>
+        <ul class="navbar__menu">{{profileItems}}</ul>
+    </li>
+  </div>
+</nav>

@@ -1,0 +1,65 @@
+#content {
+  text-align: center;
+  display: block;
+  background-color: var(--color-black-card);
+  padding-top: 110px;
+}
+
+.movie-card {
+  position: relative;
+  width: 280px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  transition: transform 0.3s;
+
+  .movie-card_images {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 2/3;
+    border: none;
+    border-radius: 16px;
+  }
+
+  .movie-card_button {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .movie-card_button:hover {
+    transform: scale(1.2);
+  }
+
+  .movie-card_images:hover {
+    opacity: 0.5;
+  }
+
+  .movie-card_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+  }
+
+  .movie-card_title {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--ff-sans);
+    margin: 0;
+  }
+}
+
+/*message*/
+
+.movie-message {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.movie-message_text {
+  color: var(--color-blue-light);
+  font-size: 1.5rem;
+}

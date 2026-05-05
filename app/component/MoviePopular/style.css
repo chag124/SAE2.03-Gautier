@@ -38,6 +38,7 @@
 
 .badge {
   background-color: red;
+  border: 2px solid black;
   color: white;
   padding: 4px 8px;
   font-size: 10px;

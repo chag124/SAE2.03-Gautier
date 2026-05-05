@@ -30,4 +30,16 @@ DataMovie.requestCategories = async function () {
     return data;
 };
 
+DataMovie.searchMovies = async function (query, age = 99) {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=searchMovies&query=" + query + "&age=" + age);
+    let data = await answer.json();
+    return data;
+}
+
+DataMovie.updateFeaturedStatus = async function (id, isChecked) {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=updateFeaturedStatus&id=" + id + "&isChecked=" + isChecked);
+    let data = await answer.json();
+    return data;
+}
+
 export { DataMovie };

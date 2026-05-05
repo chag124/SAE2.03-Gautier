@@ -11,6 +11,7 @@
     <main id="add-movie"></main>
     <main id="add-profile"></main>
     <main id="list-profiles"></main>
+    <main id="popular-management"></main>
 
     <script type="module">
       import { Log } from "./component/Log/script.js";
@@ -19,6 +20,7 @@
       import { ProfileForm } from "./component/ProfileForm/script.js";
       import { ProfileList } from "./component/ProfileList/script.js";
       import { dataProfile } from "./data/dataProfile.js";
+      import { PopularForm } from "./component/PopularForm/script.js";
 
       window.C = {};
 
@@ -32,6 +34,19 @@
         }
       }
 
+      /*Gestion de la recherche de films*/
+      C.handlerSearchMoviesAdmin = async function(query) {
+        const movies = await DataMovie.searchMovies(query, 99);
+        V.renderPopularResults(movies);
+      };
+
+      /*Gestion du changement de statut (Checkbox)*/
+      C.handlerUpdateFeaturedStatus = async function(id, isChecked) {
+        const res = await DataMovie.updateFeaturedStatus(id, isChecked);
+        V.renderLog(res);
+      };
+
+
       /*Bloc C.start*/
       C.start = async function () {
         V.renderLog("Démarrage de l'application");
@@ -39,6 +54,8 @@
         /*fonction pour le formulaire avec les catégories*/
         const categories = await DataMovie.requestCategories();
         V.renderMovieForm(categories, "C.handlerAddMovie()");
+
+        V.renderPopularForm([]);
 
         /*formulaire pour les profils*/
         V.renderProfileForm("C.handlerSaveProfile(event)")
@@ -98,6 +115,18 @@
         let content = document.querySelector("#add-movie");
         content.innerHTML = MovieForm.format(categories,handler);
       };
+
+      V.renderPopularForm = function (movies) {
+        document.querySelector("#popular-management").innerHTML = PopularForm.format(movies);
+      };
+
+      V.renderPopularResults = function (movies) {
+      let content = document.querySelector("#admin-search-results");
+      if (content) {
+        document.querySelector("#popular-management").innerHTML = PopularForm.format(movies);
+        document.querySelector("#movie-search-query").focus();
+      }
+    };
 
       V.renderProfileForm = function (handler) {
         let content = document.querySelector("#add-profile");

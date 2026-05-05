@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Primitive Tokens FranceTV*/
+  --color-bg: #0D0D0D;
+  --color-black-card: #1D121C;
+  --color-yellow: #fff000;
+  --color-white: #ffffff;
+  --color-gray: #a0a0a0;
+
+  --ff-sans: "Montserrat", sans-serif;
+
+  /* Sementic Tokens */
+  --color-fg: var(--color-white);
+  --color-bg: var(--color-black-card);
+  --color-accent: var(--color-yellow);
+
+  --border-series: #5a1a25;
+  --border-docs: #4a5a1a;
+  --border-cinema: #5a1a1a;
+  --border-sport: #1a255a;
+  --border-info: #333333;
+  --border-arts: #5a331a;
+}

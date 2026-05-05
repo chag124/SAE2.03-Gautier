@@ -1,7 +1,7 @@
 // URL où se trouve le répertoire "server" sur mmi.unilim.fr
-//let HOST_URL = "https://mmi.unilim.fr/~gautier58/SAE2.03-Gautier";
+let HOST_URL = "https://mmi.unilim.fr/~gautier58/SAE2.03-Gautier";
 
-let HOST_URL = "../..";
+//let HOST_URL = "../..";
 
 let DataMovie = {};
 
@@ -29,5 +29,17 @@ DataMovie.requestCategories = async function () {
     let data = await response.json();
     return data;
 };
+
+DataMovie.searchMovies = async function (query, age = 99) {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=searchMovies&query=" + query + "&age=" + age);
+    let data = await answer.json();
+    return data;
+}
+
+DataMovie.updateFeaturedStatus = async function (id, isChecked) {
+    let answer = await fetch(HOST_URL + "/server/script.php?todo=updateFeaturedStatus&id=" + id + "&isChecked=" + isChecked);
+    let data = await answer.json();
+    return data;
+}
 
 export { DataMovie };

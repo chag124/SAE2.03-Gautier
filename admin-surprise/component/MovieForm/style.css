@@ -1,21 +1,21 @@
-.profil-form {
+.movie-form {
   max-width: 500px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-bg);
   color: var(--color-white);
   border-radius: 20px;
   font-family: var(--ff-sans);
 }
 
-.profil-form_title {
-  text-align: center;
+.movie-form_title {
+  text-align: left;
   color: var(--color-blue-light);
   font-size: 2rem;
   margin-bottom: 2.5rem;
 }
 
-.profil-form_groupe {
+.movie-form_groupe {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
@@ -28,22 +28,22 @@ label {
   margin-bottom: 0.6rem;
 }
 
-.profil-form input,
-.profil-form select,
-.profil-form textarea {
-  background: var(--color-blue-light);
+.movie-form input,
+.movie-form select,
+.movie-form textarea {
+  background: var(--color-bg);
   border-radius: 8px;
   padding: 1rem;
-  color: var(--color-gray-dark);
+  color: white;
 }
 
-.profil-form_button {
+.movie-form_button {
   margin-top: 1rem;
   padding: 1.2rem;
   background-color: var(--color-blue-dark);
   color: var(--color-white);
   border: 2px solid var(--color-white);
-  border-radius: 6px;
+  border-radius: 50px;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -51,13 +51,19 @@ label {
   cursor: pointer;
 }
 
-.profil-form_button:hover {
-  background-color: var(--color-white);
-  color: var(--color-blue-dark);
+.movie-form input:focus,
+.movie-form select:focus,
+.movie-form textarea:focus {
+  outline: none;
+  border-color: var(--color-yellow);
 }
 
-.profil-form_button:active {
+.movie-form_button:hover {
+  background-color: var(--color-white);
+  color: var(--color-bg);
+}
+
+.movie-form_button:active {
   transform: scale(0.96);
   background-color: var(--color-blue-light);
-  border-color: var(--color-blue-light);
 }

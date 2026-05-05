@@ -1,5 +1,5 @@
 .profile-list {
-  background-color: var(--color-blue-);
+  background-color: var(--color-black-card);
   border-radius: 15px;
   padding: 20px;
   margin: 20px auto;
@@ -8,7 +8,7 @@
 }
 
 .profile-list_title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
   font-size: 1.5rem;
   color: var(--color-white);
@@ -25,7 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-blue-light);
+  background-color: rgba(255, 255, 255, 0.05);
+  ;
   margin-bottom: 10px;
   padding: 12px 20px;
   border-radius: 8px;
@@ -53,6 +54,5 @@
 }
 
 .profile-list_item button:hover {
-  background-color: var(--color-blue-light);
-  color: var(--color-blue-dark);
+  background-color: var(--color-yellow);
 }

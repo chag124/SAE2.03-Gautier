@@ -278,3 +278,18 @@ function searchMovies($query, $age = 0){
         return false;
     }
 }
+
+/*MODIFIER LE STATUT POPULAIRE D'UN FILM*/
+function updateFeaturedStatus($id, $status){
+    try {
+        $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
+        $sql = "UPDATE SAE203_Movie SET popular = :popular WHERE id = :id";
+        $stmt = $cnx->prepare($sql);
+        $stmt->bindParam(':popular', $status);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
+}

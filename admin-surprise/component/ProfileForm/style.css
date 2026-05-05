@@ -1,21 +1,21 @@
-.movie-form {
+.profil-form {
   max-width: 500px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-bg);
   color: var(--color-white);
   border-radius: 20px;
   font-family: var(--ff-sans);
 }
 
-.movie-form_title {
+.profil-form_title {
   text-align: center;
   color: var(--color-blue-light);
   font-size: 2rem;
   margin-bottom: 2.5rem;
 }
 
-.movie-form_groupe {
+.profil-form_groupe {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
@@ -28,16 +28,16 @@ label {
   margin-bottom: 0.6rem;
 }
 
-.movie-form input,
-.movie-form select,
-.movie-form textarea {
+.profil-form input,
+.profil-form select,
+.profil-form textarea {
   background: var(--color-blue-light);
   border-radius: 8px;
   padding: 1rem;
   color: var(--color-gray-dark);
 }
 
-.movie-form_button {
+.profil-form_button {
   margin-top: 1rem;
   padding: 1.2rem;
   background-color: var(--color-blue-dark);
@@ -51,13 +51,18 @@ label {
   cursor: pointer;
 }
 
-.movie-form_button:hover {
+.profil-form_button:hover {
   background-color: var(--color-white);
   color: var(--color-blue-dark);
 }
 
-.movie-form_button:active {
+.profil-form_button:active {
   transform: scale(0.96);
   background-color: var(--color-blue-light);
   border-color: var(--color-blue-light);
+}
+
+.profil-form input:focus {
+  outline: none;
+  border-color: var(--color-yellow);
 }

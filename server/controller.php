@@ -185,3 +185,20 @@ function searchMoviesController(){
     }
     return $res;
 }
+
+/*/*FONCTION MISE À JOUR DU STATUT POPULAIRE D'UN FILM*/
+function updateFeaturedStatusController(){
+    $id = $_REQUEST['id'] ?? null;
+    $isChecked = $_REQUEST['isChecked'] ?? null;
+    if ($id === null || $isChecked === null){
+        return "Les paramètres sont manquants";
+    }
+    $status = ($isChecked === 'true' || $isChecked === '1') ? 1 : 0;
+    $res = updateFeaturedStatus($id, $status);
+    if ($res){
+        return "Le statut a bien été mis à jour";
+    }
+    else {
+        return false;
+    }
+}

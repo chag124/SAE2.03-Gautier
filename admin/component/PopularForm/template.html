@@ -1,0 +1,18 @@
+<div class="admin-search">
+  <h2 class="admin-search_title">Gestion des mises en avant</h2>
+  
+  <div class="admin-search_filter">
+    <input 
+      type="text" 
+      id="movie-search-query" 
+      placeholder="Rechercher un film par titre..." 
+      oninput="C.handlerSearchMoviesAdmin(this.value)"
+    >
+  </div>
+
+  <div id="admin-search-results" class="admin-search_list">
+    {{items}}
+  </div>
+
+  <div id="admin-search-feedback" class="admin-feedback"></div>
+</div>

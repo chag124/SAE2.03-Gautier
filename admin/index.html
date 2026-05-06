@@ -121,12 +121,11 @@
       };
 
       V.renderPopularResults = function (movies) {
-      let content = document.querySelector("#admin-search-results");
-      if (content) {
-        document.querySelector("#popular-management").innerHTML = PopularForm.format(movies);
-        document.querySelector("#movie-search-query").focus();
-      }
-    };
+        let content = document.querySelector("#admin-search-results");
+        if (content) {
+          content.innerHTML = PopularForm.formatList(movies);
+        }
+      };
 
       V.renderProfileForm = function (handler) {
         let content = document.querySelector("#add-profile");

@@ -15,10 +15,15 @@
   --color-bg: var(--color-black-card);
   --color-accent: var(--color-yellow);
 
-  --border-series: #5a1a25;
-  --border-docs: #4a5a1a;
-  --border-cinema: #5a1a1a;
-  --border-sport: #1a255a;
-  --border-info: #333333;
-  --border-arts: #5a331a;
+  --border-action: #381017;
+  --border-comedie: #262f0d;
+  --border-drame: #2d0909;
+  --border-science: #090e29;
+  --border-animation: #181717;
+  --border-thriller: #311c0e;
+  --border-horreur: #222506;
+  --border-aventure: #000e4c;
+  --border-fantaisie: #430d2b;
+  --border-documentaire: #0f3535;
+  --border-romance: #390e58;
 }

@@ -14,9 +14,9 @@
  * DBPWD : Mot de passe pour se connecter à la base de données.
  */
 define("HOST", "localhost");
-define("DBNAME", "gautier58");
-define("DBLOGIN", "gautier58");
-define("DBPWD", "gautier58");
+define("DBNAME", "SAE203");
+define("DBLOGIN", "usersae203");
+define("DBPWD", "Stuv2642@80");
 
 /*AFFICHER TOUS LES FILMS */
 function getAllMovies($ageLimite = 0){
@@ -72,9 +72,9 @@ function getMovieById($id) {
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     
     $sql = "SELECT SAE203_Movie.*, SAE203_Category.name AS category_text 
-            FROM SAE203_Movie 
-            LEFT JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id 
-            WHERE SAE203_Movie.id = :id";
+    FROM SAE203_Movie 
+    LEFT JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id 
+    WHERE SAE203_Movie.id = :id";
     
     $stmt = $cnx->prepare($sql);
     $stmt->execute([':id' => $id]);
@@ -266,10 +266,13 @@ function getStats(){
 function searchMovies($query, $age = 0){
     try {
         $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
-        $sql = "SELECT * FROM SAE203_Movie WHERE name LIKE :query AND min_age <= :age";
+        $sql = "SELECT SAE203_Movie.*, SAE203_Category.name AS category_name 
+        FROM SAE203_Movie
+        JOIN SAE203_Category ON SAE203_Movie.id_category = SAE203_Category.id
+         WHERE SAE203_Movie.name LIKE :query AND SAE203_Movie.min_age <= :age";
+
         $stmt = $cnx->prepare($sql);
         $searchQuery = '%' . $query . '%';
-
         $stmt->bindParam(':query', $searchQuery);
         $stmt->bindParam(':age', $age);
         $stmt->execute();
@@ -293,3 +296,5 @@ function updateFeaturedStatus($id, $status){
         return false;
     }
 }
+
+

@@ -36,7 +36,7 @@ NavBar.format = function (hAbout, hHome, categories = [], profiles = [], activeP
   /*Profil actif */
   let activeName = "Choisir un profil";
   let activeAvatarName = "transparent.png";
-  let activeClass = "hidden";
+  let activeClass = "visible";
 
   if (activeProfile && activeProfile.name) {
     activeName = activeProfile.name;

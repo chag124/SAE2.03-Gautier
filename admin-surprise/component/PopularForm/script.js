@@ -13,6 +13,7 @@ PopularForm.format = function (movies) {
         for (let m of movies) {
             let tmp = itemTemplate.replaceAll("{{id}}", m.id);
             tmp = tmp.replaceAll("{{name}}", m.name);
+            tmp = tmp.replaceAll("{{category_name}}", m.category_name);
             tmp = tmp.replaceAll("{{year}}", m.year);
 
             let checkedValue = "";
@@ -27,6 +28,24 @@ PopularForm.format = function (movies) {
     let finalHtml = template.replace("{{items}}", itemsHtml);
 
     return finalHtml;
+}
+
+PopularForm.formatList = function (movies) {
+    let itemsHtml = "";
+    if (movies && Array.isArray(movies)) {
+        for (let m of movies) {
+            let tmp = itemTemplate.replaceAll("{{id}}", m.id);
+            tmp = tmp.replaceAll("{{name}}", m.name);
+            tmp = tmp.replaceAll("{{category_name}}", m.category_name);
+            tmp = tmp.replaceAll("{{year}}", m.year);
+
+            let checkedValue = (m.popular == 1) ? "checked" : "";
+            tmp = tmp.replaceAll("{{checked}}", checkedValue);
+
+            itemsHtml += tmp;
+        }
+    }
+    return itemsHtml;
 }
 
 export { PopularForm };

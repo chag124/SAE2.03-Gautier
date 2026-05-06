@@ -41,6 +41,28 @@
         );
       };
 
+      C.handlerToggleMenu = function() {
+          const menu = document.getElementById('main-nav-menu');
+          menu.classList.toggle('active');
+          if (menu.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+          } else {
+              document.body.style.overflow = 'auto';
+          }
+      };
+
+      C.handlerToggleSearch = function() {
+        const searchOverlay = document.querySelector('#search-overlay');
+        const searchInput = document.querySelector('#search-input');
+        
+        if (searchOverlay) {
+          searchOverlay.classList.toggle('hidden');
+          if (!searchOverlay.classList.contains('hidden')) {
+            searchInput.focus();
+          }
+        }
+      };
+
 
       /*fonction pour la barre de recherche*/
       C.handlerSearch = async function(){
@@ -160,6 +182,7 @@
         V.renderNavBar("C.handlerAbout()", "C.handlerHome()", window.allCategories, window.allProfiles, window.activeProfile);
         V.renderHomePage(popularData, data); 
     };
+
 
       // Vue (contient tout ce qui est relatif à l'affichage)
       window.V = {};

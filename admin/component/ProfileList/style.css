@@ -7,7 +7,7 @@
   color: var(--color-white);
 }
 
-.profile-list_title {
+.profile-list__title {
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.5rem;
@@ -15,13 +15,13 @@
   padding-bottom: 10px;
 }
 
-.profile-list_container {
+.profile-list__container {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.profile-list_item {
+.profile-list__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,16 +31,16 @@
   border-radius: 8px;
 }
 
-.profile-list_item:hover {
+.profile-list__item:hover {
   background-color: var(--color-blue-dark);
 }
 
-.profile-list_item span {
+.profile-list__item span {
   font-size: 1.1rem;
   font-weight: 500;
 }
 
-.profile-list_item button {
+.profile-list__item button {
   background-color: var(--color-blue-light);
   color: var(--color-blue-dark);
   border: none;
@@ -52,7 +52,7 @@
   font-size: 0.8rem;
 }
 
-.profile-list_item button:hover {
+.profile-list__item button:hover {
   background-color: var(--color-blue-light);
   color: var(--color-blue-dark);
 }

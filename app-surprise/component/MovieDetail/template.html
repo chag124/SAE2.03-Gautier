@@ -1,27 +1,34 @@
 <div class="movie-detail">
-  <button class="movie-detail_button" onclick="C.handlerHome()">Retour à la liste</button>
+  <button class="movie-detail__button" onclick="C.handlerHome()">Retour à la liste</button>
 
-  <div class="movie-detail_trailer">
-    <iframe src="{{trailer}}"frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  <div class="movie-detail_container">
-    <div class="movie-detail_image">
-        <img src="../server/images/{{image}}" alt="affiche film">
+  <div class="movie-detail__container">
+    <div class="movie-detail__image">
+        <img src="../server/images/{{image_hero}}"alt="affiche film">
+        <div class="movie-detail__overlay"></div>
     </div>
 
-    <div class="movie-detail_info">
-      <h1 class="movie-detail_title">{{name}}</h1>
-      <span class="movie-detail_category">{{id_category}}</span>
-      <p class="movie-detail_description">{{description}}</p>
+    <div class="movie-detail__info">
+      <h1 class="movie-detail__title">{{name}}</h1>
 
-      <div class="movie-detail_donnee">
+      <div class="movie-detail__group">
+        <img class="movie-detail__logo" onclick="{{hHome}}" src="../server/images/logo-francetv-petit.png" alt="France TV">
+        <span class="movie-detail__separator">•</span>
+        <span class="movie-detail__category">{{id_category}}</span>
+      </div>
+
+      <p class="movie-detail__description">{{description}}</p>
+
+      <div class="movie-detail__donnee">
         <p>Durée: {{length}} min</p>
         <p>Réalisateur: {{director}}</p>
         <p>Année de sortie: {{year}}</p>
-        <p class="movie-detail_badge">Âge: {{min_age}}</p>
+        <p class="movie-detail__badge">Âge: {{min_age}}</p>
       </div>
     </div>
+  </div>
+
+  <div class="movie-detail__trailer">
+    <iframe src="{{trailer}}"frameborder="0" allowfullscreen></iframe>
   </div>
 
 </div>

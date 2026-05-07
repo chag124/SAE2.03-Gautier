@@ -8,14 +8,14 @@
   font-family: var(--ff-sans);
 }
 
-.profil-form_title {
+.profil-form__title {
   text-align: center;
   color: var(--color-blue-light);
   font-size: 2rem;
   margin-bottom: 2.5rem;
 }
 
-.profil-form_groupe {
+.profil-form__groupe {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
@@ -37,7 +37,7 @@ label {
   color: var(--color-gray-dark);
 }
 
-.profil-form_button {
+.profil-form__button {
   margin-top: 1rem;
   padding: 1.2rem;
   background-color: var(--color-blue-dark);
@@ -51,12 +51,12 @@ label {
   cursor: pointer;
 }
 
-.profil-form_button:hover {
+.profil-form__button:hover {
   background-color: var(--color-white);
   color: var(--color-blue-dark);
 }
 
-.profil-form_button:active {
+.profil-form__button:active {
   transform: scale(0.96);
   background-color: var(--color-blue-light);
   border-color: var(--color-blue-light);

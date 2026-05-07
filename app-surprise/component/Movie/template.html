@@ -1,8 +1,8 @@
 <div class="movie-card" onclick="C.handlerDetail('{{id}}')">
-  <img src="../server/images/{{image}}" alt="affiche film" class="movie-card_images">
-  <div class="movie-card_content">
-    <h3 class="movie-card_title">{{name}}</h3>
-    <img class="movie-card_button" onclick="event.stopPropagation(); {{handler}}('{{id}}')" src="../server/images/{{button_src}}" alt="Ajouter aux favoris">
+  <img src="../server/images/{{image}}" alt="affiche film" class="movie-card__images">
+  <div class="movie-card__content">
+    <h3 class="movie-card__title">{{name}}</h3>
+    <img class="movie-card__button" onclick="event.stopPropagation(); {{handler}}('{{id}}')" src="../server/images/{{button_src}}" alt="Ajouter aux favoris">
   </div>
 </div>
 

@@ -7,14 +7,14 @@
   color: #333;
 }
 
-.admin-search_title {
+.admin-search__title {
   margin-bottom: 20px;
   font-size: 1.5rem;
   border-bottom: 2px solid #ccc;
   padding-bottom: 10px;
 }
 
-.admin-search_filter input {
+.admin-search__filter input {
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
@@ -34,13 +34,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.admin-movie-item_name {
+.admin-movie-item__name {
   display: block;
   font-weight: bold;
   font-size: 1.1rem;
 }
 
-.admin-movie-item_category {
+.admin-movie-item__category {
   font-size: 0.85rem;
   color: #666;
 }
@@ -53,7 +53,7 @@
   font-weight: 600;
 }
 
-.admin-feedback {
+.admin-search__feedback {
   margin-top: 15px;
   text-align: center;
   font-weight: bold;

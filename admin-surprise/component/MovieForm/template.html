@@ -1,52 +1,52 @@
 <form class="movie-form">
-  <h1 class="movie-form_title">J'ajoute un nouveau film</h1>
+  <h1 class="movie-form__title">J'ajoute un nouveau film</h1>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="name">Titre du film</label>
     <input required type="text" id="name" name="name" placeholder="Annihilation">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="director">Réalisateur</label>
     <input required type="text" id="director" name="director" placeholder="Alex Garland">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="year">Année de sortie</label>
     <input required type="number" id="year" name="year" placeholder="2019" pattern="[0-9]{4}">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="time">Durée en minutes</label>
     <input required type="number" id="time" name="time" placeholder="120">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="description">Description</label>
     <textarea id="description" name="description"></textarea>
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="category">Catégorie du film</label>
     <select required id="category" name="category">{{categories_options}}</select>
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="image">Nom du fichier de l'affiche</label>
     <input required type="text" id="image" name="image">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="trailer">URL du trailer</label>
     <input required type="url" id="trailer" name="trailer">
   </div>
 
-  <div class="movie-form_groupe">
+  <div class="movie-form__groupe">
     <label for="age">Age</label>
     <input required type="number" id="age" name="age" min="0" max="18">
   </div>
 
-  <input class="movie-form_button" onclick="{{handler}}" type="button" value="Enregistrer le film" name="todo">
+  <input class="movie-form__button" onclick="{{handler}}" type="button" value="Enregistrer le film" name="todo">
 
 </form>
 

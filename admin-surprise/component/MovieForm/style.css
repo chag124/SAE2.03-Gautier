@@ -8,14 +8,14 @@
   font-family: var(--ff-sans);
 }
 
-.movie-form_title {
+.movie-form__title {
   text-align: left;
   color: var(--color-blue-light);
   font-size: 2rem;
   margin-bottom: 2.5rem;
 }
 
-.movie-form_groupe {
+.movie-form__groupe {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
@@ -37,7 +37,7 @@ label {
   color: white;
 }
 
-.movie-form_button {
+.movie-form__button {
   margin-top: 1rem;
   padding: 1.2rem;
   background-color: var(--color-blue-dark);
@@ -58,12 +58,12 @@ label {
   border-color: var(--color-yellow);
 }
 
-.movie-form_button:hover {
+.movie-form__button:hover {
   background-color: var(--color-white);
   color: var(--color-bg);
 }
 
-.movie-form_button:active {
+.movie-form__button:active {
   transform: scale(0.96);
   background-color: var(--color-blue-light);
 }

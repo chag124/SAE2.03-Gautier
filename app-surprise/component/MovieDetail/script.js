@@ -8,7 +8,7 @@ MovieDetail.format = function (movie) {
   let html = template;
 
   html = html.replace("{{name}}", movie.name);
-  html = html.replace("{{image}}", movie.image);
+  html = html.replace("{{image_hero}}", movie.banniere);
   html = html.replace("{{description}}", movie.description);
   html = html.replace("{{id_category}}", movie.category_text);
   html = html.replace("{{length}}", movie.length);
